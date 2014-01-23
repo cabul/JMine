@@ -47,6 +47,7 @@ public class Game {
         Debug.log("Creating Game",rows+"x"+columns+" Mines: "+mines);
         
         statusView.print("New Game");
+        statusView.setup();
     }
     
     public int getRows() {
@@ -66,11 +67,7 @@ public class Game {
         }
         Debug.log("Select",position.getRow()+":"+position.getColumn());
         if(!init){
-            Debug.log("Building Game Board");
-            board.build(position);
-            Debug.log("Finished Building");
-            init = true;
-            markerStatus();
+            initialize(position);
         }
         final int status = board.get(position).select();
         if( status == -1){
@@ -124,10 +121,20 @@ public class Game {
         }else{
             statusView.print("Game Over");
         }
+        statusView.stopCounter();
     }
     
     private void markerStatus(){
         statusView.print("Markers Left: " + pool.markersLeft());
+    }
+
+    private void initialize(Position position) {
+        Debug.log("Building Game Board");
+        board.build(position);
+        Debug.log("Finished Building");
+        init = true;
+        markerStatus();
+        statusView.startCounter();
     }
     
 }

@@ -1,8 +1,6 @@
 package jmine.ui.swing;
 
 import java.awt.BorderLayout;
-import java.awt.Point;
-import java.awt.image.BufferedImage;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;

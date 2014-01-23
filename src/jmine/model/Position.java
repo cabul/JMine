@@ -1,5 +1,7 @@
 package jmine.model;
 
+import jmine.Debug;
+
 public final class Position {
     
     private final int row;
@@ -145,7 +147,7 @@ public final class Position {
     }
     
     public boolean inBounds(Position max){
-        return row < max.row && column < max.column &&
+        return row <= max.row && column <= max.column &&
                 row >= 0 && column >= 0;
     }
 }

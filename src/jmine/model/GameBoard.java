@@ -128,7 +128,7 @@ public final class GameBoard {
         link(tiles);
     }
     
-    private void link(Tile[][] tiles){
+    private void link(Tile[][] tiles){/*
         Position max = new Position(rows-1,columns-1);
         for(Tile[] row : tiles){
             for(Tile tile : row){
@@ -143,7 +143,10 @@ public final class GameBoard {
                 }
                 ((Sand)tile).setAdjacents(link);
             }
-        }
+        }*/
+        linkCorners(tiles);
+        linkEdges(tiles);
+        linkCenter(tiles);
     }
     
     private void linkCorners(Tile[][] tiles){
